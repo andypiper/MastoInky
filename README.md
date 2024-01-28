@@ -2,7 +2,7 @@
 
 Fork of @axwax's MastoInky, with some changes to make it work with my hardware (Inky Impression 5.7" rather than Inky Developer 7-colour) and my use case.
 
-(`clean.py` comes from Pimoroni examples)
+(`clean.py` comes from [Pimoroni examples](https://github.com/pimoroni/inky/blob/main/examples/clean.py) and is useful for fully clearing the display to avoid artefacts from previous images)
 
 TODO: add more details here 🙂
 TODO: maybe (?) add a config file to make it easier to change settings without editing the code (basically a theme system to pair font, image template, insert sizes)
