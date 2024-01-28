@@ -1,4 +1,19 @@
 # MastoInky
+
+Fork of @axwax's MastoInky, with some changes to make it work with my hardware (Inky Impression 5.7" rather than Inky Developer 7-colour) and my use case.
+
+(`clean.py` comes from Pimoroni examples)
+
+TODO: add more details here 🙂
+TODO: maybe (?) add a config file to make it easier to change settings without editing the code (basically a theme system to pair font, image template, insert sizes)
+TODO: printable frame
+TODO: button handling
+
+---
+
+
+Original README follows:
+
 Display image posts from a Mastodon personal, hashtag or public timeline on a Raspberry Pi with the Pimoroni Inky Developer E Ink
 
 ## Prerequisites
