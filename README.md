@@ -4,15 +4,11 @@ Fork of @axwax's MastoInky, with some changes to make it work with my hardware (
 
 (`clean.py` comes from [Pimoroni examples](https://github.com/pimoroni/inky/blob/main/examples/clean.py) and is useful for fully clearing the display to avoid artefacts from previous images)
 
-TODO: add more details here 🙂
-TODO: maybe (?) add a config file to make it easier to change settings without editing the code (basically a theme system to pair font, image template, insert sizes)
-TODO: printable frame
-TODO: button handling
+Note that this is currently only tested / usable on Bullseye, not Bookworm. GPIO handling is different in Bookworm IIUC.
+
+Original README follows
 
 ---
-
-
-Original README follows:
 
 Display image posts from a Mastodon personal, hashtag or public timeline on a Raspberry Pi with the Pimoroni Inky Developer E Ink
 
