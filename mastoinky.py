@@ -94,6 +94,7 @@ def get_wrapped_text(text: str, font: ImageFont.ImageFont, line_length: int):
 
 # find the maximum font size for text to be rendered within the specified rectangle
 def find_font_size(the_text, the_font, the_canvas, textbox_width, textbox_height):
+    wrapped_text = the_text  # Initialize wrapped_text
     for size in range(
         20, 1, -1
     ):  # we start with font size 20 and make it smaller until it fits
@@ -193,7 +194,9 @@ def show_post_image(post_id=0, media_id=0):
 
     # someone forgot to add their ALT text - let's give them a gentle nudge.
     if not caption:
-        caption = "There could be a beautiful image description here. Maybe next time?"
+        caption = (
+            "There could a lovely alt text image description here... Maybe next time?"
+        )
 
     media_desc = caption + " - wrote " + str(media_author)
 
@@ -224,18 +227,18 @@ def handle_button(pin):
     if str(label) == "A":
         post_id += 1
         img_id = 0
-        print("A")
+        print("next post")
     elif str(label) == "B":
         post_id -= 1
         img_id = 0
-        print("B")
+        print("prev post")
     elif str(label) == "C":
         img_id += 1
-        print("C")
+        print("next media id")
     elif str(label) == "D":
         if img_id > 0:
             img_id -= 1
-        print("D")
+        print("prev media id")
 
         return
 
@@ -263,12 +266,14 @@ if __name__ == "__main__":
         # load posts with media attachments from a timeline
 
         # uncomment the relevant line
-        # latest_media_post = mastodon.account_statuses(id = account_id, limit = max_posts, only_media = True) # get images from a personal timeline (change account_id in credentials.py)
+        # latest_media_post = mastodon.account_statuses(
+        #     id=account_id, limit=max_posts, only_media=True
+        # )  # get images from a personal timeline (change account_id in credentials.py)
         # latest_media_post = mastodon.timeline_public(only_media=True, limit=max_posts) # get images from the public timeline / federated feed
         latest_media_post = mastodon.timeline_hashtag(
             "CatsOfMastodon", limit=max_posts, only_media=True
         )  # all posts from a certain hashtag
-
+        print("showing image")
         show_post_image(1, 0)
 
         # add all the button handlers
