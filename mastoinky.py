@@ -65,8 +65,9 @@ img_id = 0
 try:
     # init Mastodon API
     mastodon = Mastodon(access_token=access_token, api_base_url=api_base_url)
+    print("Connected to Mastodon API.")
 except Exception as e:
-    print(f"Failed to initialize Mastodon API: {e}")
+    print(f"Failed to init Mastodon API: {e}")
     exit(1)
 
 # Set up the Inky Display
@@ -145,6 +146,7 @@ def show_image(img, caption="", media_id=""):
     im_thumb = crop_max_square(mod_image).resize(
         (thumb_width, thumb_width), Image.LANCZOS
     )
+    print("Made thumbnail.")
 
     # load the background as the bottom layer
     newImage = Image.new("RGB", (600, 448))
@@ -165,6 +167,7 @@ def show_image(img, caption="", media_id=""):
 
     # draw the assembled image
     draw = ImageDraw.Draw(newImage)
+    print("Built composite.")
 
     # load the font and find the largest possible font size for the caption to stay within the speech bubble
     font = ImageFont.FreeTypeFont(font_name)
@@ -181,6 +184,7 @@ def show_image(img, caption="", media_id=""):
         anchor="mm",
     )
 
+    print("showing image")
     # send the image to the E Ink display
     display.set_image(newImage)
     display.show()
@@ -273,7 +277,7 @@ if __name__ == "__main__":
         latest_media_post = mastodon.timeline_hashtag(
             "CatsOfMastodon", limit=max_posts, only_media=True
         )  # all posts from a certain hashtag
-        print("showing image")
+
         show_post_image(1, 0)
 
         # add all the button handlers
